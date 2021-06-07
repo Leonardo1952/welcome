@@ -9,8 +9,17 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Auth Screen 1',
       theme: ThemeData(
+        brightness: Brightness.dark,
         primaryColor: AppColors.kPrimaryColor,
         scaffoldBackgroundColor: AppColors.kBackgroundColor,
+        textTheme: TextTheme(
+          display1: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+          button: TextStyle(
+            color: AppColors.kPrimaryColor,
+          ),
+          headline:
+              TextStyle(color: Colors.white, fontWeight: FontWeight.normal),
+        ),
       ),
       home: WelcomeScreen(),
     );
@@ -35,9 +44,54 @@ class WelcomeScreen extends StatelessWidget {
             ),
           ),
           Expanded(
-              child: Column(
-            children: [],
-          ))
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                RichText(
+                  textAlign: TextAlign.center,
+                  text: TextSpan(
+                    children: [
+                      TextSpan(
+                          text: "BAKING LESSONS\n",
+                          style: Theme.of(context).textTheme.display1),
+                      TextSpan(
+                        text: "MASTER THE ART OF BAKING",
+                        style: Theme.of(context).textTheme.headline,
+                      ),
+                    ],
+                  ),
+                ),
+                FittedBox(
+                  child: Container(
+                    margin: EdgeInsets.only(bottom: 25),
+                    padding: EdgeInsets.symmetric(horizontal: 26, vertical: 16),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(25),
+                      color: AppColors.kPrimaryColor,
+                    ),
+                    child: Row(
+                      children: [
+                        Text(
+                          "Start Learning",
+                          style: Theme.of(context)
+                              .textTheme
+                              .button
+                              .copyWith(color: Colors.black),
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Icon(
+                          Icons.arrow_forward,
+                          color: Colors.black,
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );

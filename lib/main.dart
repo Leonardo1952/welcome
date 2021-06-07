@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:welcome_login_screen/core/app_colors.dart';
+import 'package:welcome_login_screen/signin_screen.dart';
 
 void main() => runApp(MyApp());
 
@@ -62,30 +63,43 @@ class WelcomeScreen extends StatelessWidget {
                   ),
                 ),
                 FittedBox(
-                  child: Container(
-                    margin: EdgeInsets.only(bottom: 25),
-                    padding: EdgeInsets.symmetric(horizontal: 26, vertical: 16),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(25),
-                      color: AppColors.kPrimaryColor,
-                    ),
-                    child: Row(
-                      children: [
-                        Text(
-                          "Start Learning",
-                          style: Theme.of(context)
-                              .textTheme
-                              .button
-                              .copyWith(color: Colors.black),
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return SignInScreen();
+                          },
                         ),
-                        SizedBox(
-                          width: 10,
-                        ),
-                        Icon(
-                          Icons.arrow_forward,
-                          color: Colors.black,
-                        )
-                      ],
+                      );
+                    },
+                    child: Container(
+                      margin: EdgeInsets.only(bottom: 25),
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 26, vertical: 16),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(25),
+                        color: AppColors.kPrimaryColor,
+                      ),
+                      child: Row(
+                        children: [
+                          Text(
+                            "Start Learning",
+                            style: Theme.of(context)
+                                .textTheme
+                                .button
+                                .copyWith(color: Colors.black),
+                          ),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Icon(
+                            Icons.arrow_forward,
+                            color: Colors.black,
+                          )
+                        ],
+                      ),
                     ),
                   ),
                 ),

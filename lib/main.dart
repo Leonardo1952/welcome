@@ -21,6 +21,13 @@ class MyApp extends StatelessWidget {
           headline:
               TextStyle(color: Colors.white, fontWeight: FontWeight.normal),
         ),
+        inputDecorationTheme: InputDecorationTheme(
+          enabledBorder: UnderlineInputBorder(
+            borderSide: BorderSide(
+              color: Colors.white.withOpacity(.1),
+            ),
+          ),
+        ),
       ),
       home: WelcomeScreen(),
     );
@@ -97,7 +104,7 @@ class WelcomeScreen extends StatelessWidget {
                           Icon(
                             Icons.arrow_forward,
                             color: Colors.black,
-                          )
+                          ),
                         ],
                       ),
                     ),
